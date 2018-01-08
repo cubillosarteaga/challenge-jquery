@@ -9,6 +9,7 @@ $('.hidden').toggle()
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
+  renderActivities(activitiesArray);
 
 });
 
@@ -45,9 +46,14 @@ $('.list-recipes').append('<h2 class="title-recipe">' +
 * Función que se encarga de pintar todas las actividades
 */
 function renderActivities(activitiesArray) {
-	console.log('Activities: ', activitiesArray);
+  for (var i = 0; i < activitiesArray.length; i++){
+    renderActivty(activitiesArray[i]);
+    if(activitiesArray > 0){
+      $(".wrapper-message").hide();
+    }
+  //console.log('Activities: ', activitiesArray);//
 }
-
+}
 /*
 * Función que se encarga de pintar una actividad
 * Aqui se tiene que crear el HTML que esta en el 
