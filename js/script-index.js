@@ -1,5 +1,12 @@
 $(document).ready( function(){
 
+  //esconder y mostrar iconos flecha y menú//
+$('.hidden').toggle()
+
+
+  $('.printNews').text('NUEVAS RECETAS');
+
+
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 
@@ -11,9 +18,14 @@ $(document).ready( function(){
 * marcado el atributo "highlighted" como TRUE
 */
 function renderHighlightedRecipes(recipesArray) {
-	console.log('Recipes: ', recipesArray);
-}
+  for (var i = 0; i < recipesArray.length; i++) {
+    if(recipesArray[i].highlighted == true){
+      renderRecipe(recipesArray[i])
+	//console.log('Recipes: ', recipesArray);//
 
+}
+}
+}
 /*
 * Función que se encarga de pintar UNA recetas que tenga 
 * marcado el atributo "highlighted" como TRUE
@@ -21,7 +33,10 @@ function renderHighlightedRecipes(recipesArray) {
 * archivo "templates/templates-recipe.html"
 */
 function renderRecipe(recipe) {
+$('.list-recipes').append('<h2 class="title-recipe">' +
+  recipe.title+'"</h2><p class="author-recipe">'+ recipe.source.name+'</p> <img src="'+ 'img/recipes/320x350/'+ recipe.name + '.jpg" />');
 	console.log('Voy a pintar la receta: ', recipe);
+
 }
 
 
